@@ -109,6 +109,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -199,6 +202,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Especiais.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -219,8 +226,12 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CadastroClientes.Application\CadastroClientes.Application.csproj">
+      <Project>{0869581c-c65f-40c7-a1f4-5c510176ff08}</Project>
+      <Name>CadastroClientes.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CadastroClientes.Domain\CadastroClientes.Domain.csproj">
-      <Project>{c0d2e9ca-f30e-4fd4-a19f-92963cec7a6f}</Project>
+      <Project>{C0D2E9CA-F30E-4FD4-A19F-92963CEC7A6F}</Project>
       <Name>CadastroClientes.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\CadastroClientes.Infrastructure.Data\CadastroClientes.Infrastructure.Data.csproj">

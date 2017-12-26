@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
-namespace CadastroClientes.Domain.Interfaces
+namespace CadastroClientes.Application.Interface
 {
-    public interface IRepositoryBase<TEntity> where TEntity : class
+    public interface IAppServiceBase<TEntity> where TEntity : class
     {
         void Add(TEntity obj);
 

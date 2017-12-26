@@ -1,20 +1,33 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
+using CadastroClientes.Application.Interface;
 using CadastroClientes.Domain.Entities;
-using CadastroClientes.Infrastructure.Data.Repositories;
 using CadastroClientes.Mvc.ViewModels;
 
 namespace CadastroClientes.Mvc.Controllers
 {
     public class ClientesController : Controller
     {
-        private readonly ClienteRepository _clienteRepository = new ClienteRepository();
+        private readonly IClienteAppService _clienteAppService;
+
+        public ClientesController(IClienteAppService clienteAppService)
+        {
+            _clienteAppService = clienteAppService;
+        }
 
         // GET: Clientes
         public ActionResult Index()
         {
-            var model = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteRepository.GetAll());
+            var model = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteAppService.GetAll());
+
+            return View(model);
+        }
+
+        // GET: Clientes/Details/5
+        public ActionResult Especiais()
+        {
+            var model = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteAppService.ObterClientesEspeciais());
 
             return View(model);
         }
@@ -22,7 +35,11 @@ namespace CadastroClientes.Mvc.Controllers
         // GET: Clientes/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var cliente = _clienteAppService.GetById(id);
+
+            var model = Mapper.Map<Cliente, ClienteViewModel>(cliente);
+
+            return View(model);
         }
 
         // GET: Clientes/Create
@@ -40,7 +57,7 @@ namespace CadastroClientes.Mvc.Controllers
 
             var clienteDomain = Mapper.Map<ClienteViewModel, Cliente>(model);
 
-            _clienteRepository.Add(clienteDomain);
+            _clienteAppService.Add(clienteDomain);
 
             return RedirectToAction("Index");
         }
@@ -48,45 +65,47 @@ namespace CadastroClientes.Mvc.Controllers
         // GET: Clientes/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var cliente = _clienteAppService.GetById(id);
+
+            var model = Mapper.Map<Cliente, ClienteViewModel>(cliente);
+
+            return View(model);
         }
 
         // POST: Clientes/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(ClienteViewModel model)
         {
-            try
-            {
-                // TODO: Add update logic here
+            if (!ModelState.IsValid) return View(model);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var clienteDomain = Mapper.Map<ClienteViewModel, Cliente>(model);
+
+            _clienteAppService.Update(clienteDomain);
+
+            return RedirectToAction("Index");
         }
 
         // GET: Clientes/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var cliente = _clienteAppService.GetById(id);
+
+            var model = Mapper.Map<Cliente, ClienteViewModel>(cliente);
+
+            return View(model);
         }
 
         // POST: Clientes/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(ClienteViewModel viewModel)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var model = Mapper.Map<ClienteViewModel, Cliente>(viewModel);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            _clienteAppService.Delete(model);
+
+            return View(viewModel);
         }
     }
 }

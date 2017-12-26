@@ -1,5 +1,6 @@
 ﻿using CadastroClientes.Domain.Entities;
 using CadastroClientes.Domain.Interfaces;
+using CadastroClientes.Domain.Interfaces.Repositories;
 
 namespace CadastroClientes.Infrastructure.Data.Repositories
 {
