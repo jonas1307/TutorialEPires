@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+    <AssemblyName>CadastroClientes.Infrastructure.Data</AssemblyName>
+    <RootNamespace>CadastroClientes.Infrastructure.Data</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="EntityConfig\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Context\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CadastroClientes.Domain\CadastroClientes.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
