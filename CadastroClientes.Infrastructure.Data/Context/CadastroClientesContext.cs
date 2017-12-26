@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using CadastroClientes.Domain.Entities;
+using CadastroClientes.Infrastructure.Data.EntityConfig;
 
 namespace CadastroClientes.Infrastructure.Data.Context
 {
@@ -34,6 +35,9 @@ namespace CadastroClientes.Infrastructure.Data.Context
             // Quando não houver MAXLENGHT, setar para 255 ao invés de MAX
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(255));
+
+            modelBuilder.Configurations.Add(new ClienteConfiguration());
+            modelBuilder.Configurations.Add(new ProdutoConfiguration());
         }
 
         public override int SaveChanges()
@@ -53,5 +57,7 @@ namespace CadastroClientes.Infrastructure.Data.Context
         #endregion
 
         public DbSet<Cliente> Clientes { get; set; }
+
+        public DbSet<Produto> Produtos { get; set; }
     }
 }
