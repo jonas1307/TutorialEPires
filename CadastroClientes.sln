@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastroClientes.Domain", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastroClientes.Infrastructure.Data", "CadastroClientes.Infrastructure.Data\CadastroClientes.Infrastructure.Data.csproj", "{2C7EC607-DDE5-49A0-B0B2-284FB1C4F901}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastroClientes.Infrastructure.CrossCutting.IoC", "CadastroClientes.Infrastructure.CrossCutting.IoC\CadastroClientes.Infrastructure.CrossCutting.IoC.csproj", "{69D61CF9-8956-41BB-8DEF-CDC2CA999EED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{2C7EC607-DDE5-49A0-B0B2-284FB1C4F901}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C7EC607-DDE5-49A0-B0B2-284FB1C4F901}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C7EC607-DDE5-49A0-B0B2-284FB1C4F901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69D61CF9-8956-41BB-8DEF-CDC2CA999EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69D61CF9-8956-41BB-8DEF-CDC2CA999EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69D61CF9-8956-41BB-8DEF-CDC2CA999EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69D61CF9-8956-41BB-8DEF-CDC2CA999EED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,5 +64,6 @@ Global
 		{0869581C-C65F-40C7-A1F4-5C510176FF08} = {21B5CE80-8B33-45D8-A1F2-6DC8F4EA39D0}
 		{C0D2E9CA-F30E-4FD4-A19F-92963CEC7A6F} = {E251FEAA-46B3-45E6-BB89-912355316D03}
 		{2C7EC607-DDE5-49A0-B0B2-284FB1C4F901} = {9EC47822-7D6F-40B8-B62F-BE9EDCCD7932}
+		{69D61CF9-8956-41BB-8DEF-CDC2CA999EED} = {358243A2-5850-4496-9368-92B951487300}
 	EndGlobalSection
 EndGlobal

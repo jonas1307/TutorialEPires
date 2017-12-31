@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using CadastroClientes.Application.Interface;
 using CadastroClientes.Domain.Entities;
 using CadastroClientes.Domain.Interfaces.Services;
 
 namespace CadastroClientes.Application
 {
-    public class ClienteAppService : AppServiceBase<Cliente>
+    public class ClienteAppService : AppServiceBase<Cliente>, IClienteAppService
     {
         private readonly IClienteService _clienteService;
 

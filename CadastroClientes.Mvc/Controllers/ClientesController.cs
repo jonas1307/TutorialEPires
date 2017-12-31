@@ -99,13 +99,12 @@ namespace CadastroClientes.Mvc.Controllers
         // POST: Clientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(ClienteViewModel viewModel)
+        public ActionResult DeleteConfirmed(int id)
         {
-            var model = Mapper.Map<ClienteViewModel, Cliente>(viewModel);
+            var cliente = _clienteAppService.GetById(id);
+            _clienteAppService.Delete(cliente);
 
-            _clienteAppService.Delete(model);
-
-            return View(viewModel);
+            return RedirectToAction("Index");
         }
     }
 }
