@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using CadastroClientes.Domain.Interfaces;
 using CadastroClientes.Domain.Interfaces.Repositories;
 using CadastroClientes.Infrastructure.Data.Context;
 

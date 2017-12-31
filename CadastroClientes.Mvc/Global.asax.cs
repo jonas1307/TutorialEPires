@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Web;
+using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using CadastroClientes.Infrastructure.CrossCutting.IoC;
@@ -6,7 +7,7 @@ using CadastroClientes.Mvc.AutoMapper;
 
 namespace CadastroClientes.Mvc
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
